@@ -79,10 +79,10 @@ export const HomePage: React.FC = () => {
 
       {/* 1. Core Services Preview */}
       <section className="py-20 relative bg-dark-950 overflow-hidden border-t border-slate-800/80">
-        <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="max-w-3xl space-y-3">
+            <div className="max-w-4xl space-y-3">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-mono font-bold uppercase">
                 <Sparkles className="w-3.5 h-3.5" />
                 CORE CAPABILITIES PREVIEW
@@ -90,44 +90,44 @@ export const HomePage: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 Engineering Solutions for the <span className="text-gradient-cyan-blue">Intelligent Era</span>
               </h2>
-              <p className="text-slate-300 text-xs sm:text-sm max-w-2xl">
+              <p className="text-slate-300 text-xs sm:text-sm max-w-3xl">
                 We engineer enterprise software systems powered by Generative AI, LLMs, Agentic Workflows, MCP, and Cloud Architecture.
               </p>
             </div>
 
             <Link
               to="/services"
-              className="px-6 py-3 rounded-xl font-semibold text-xs text-white bg-brand-blue/20 hover:bg-brand-blue/30 border border-brand-blue/40 text-brand-cyan transition-all flex items-center gap-2 w-fit shadow-glow-sm"
+              className="px-6 py-3 rounded-xl font-semibold text-xs text-white bg-brand-blue/20 hover:bg-brand-blue/30 border border-brand-blue/40 text-brand-cyan transition-all flex items-center gap-2 w-fit shadow-glow-sm flex-shrink-0"
             >
               <span>Explore All Services</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          {/* Services Grid - Ultra-Wide Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 6 Services Grid - Adaptive Screen Scaling */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6 gap-6">
             {homepageServices.map((service) => {
               const IconComponent = getServiceIcon(service.iconName);
               return (
                 <div
                   key={service.id}
-                  className="group relative rounded-2xl bg-gradient-to-b from-dark-850/90 to-dark-900/90 border border-slate-800 hover:border-brand-blue/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
+                  className="group relative rounded-2xl bg-gradient-to-b from-dark-850/90 to-dark-900/90 border border-slate-800 hover:border-brand-blue/50 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 rounded-xl bg-dark-800 border border-slate-700/80 group-hover:border-brand-cyan/40 group-hover:bg-brand-blue/20 transition-all duration-300 shadow-glow-sm">
-                        <IconComponent className="w-5 h-5 text-brand-cyan group-hover:text-white transition-colors" />
+                      <div className="p-3.5 rounded-xl bg-dark-800 border border-slate-700/80 group-hover:border-brand-cyan/40 group-hover:bg-brand-blue/20 transition-all duration-300 shadow-glow-sm">
+                        <IconComponent className="w-6 h-6 text-brand-cyan group-hover:text-white transition-colors" />
                       </div>
                       <span className="font-mono text-xs font-bold text-slate-500 group-hover:text-brand-cyan transition-colors">
                         {service.number}
                       </span>
                     </div>
 
-                    <div className="text-[10px] font-mono font-semibold uppercase tracking-wider text-brand-cyan mb-1.5">
+                    <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-brand-cyan mb-1.5">
                       {service.category}
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors mb-2">
+                    <h3 className="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors mb-2">
                       {service.title}
                     </h3>
 
@@ -153,7 +153,7 @@ export const HomePage: React.FC = () => {
 
       {/* 2. AI & Agentic Engineering Feature Snapshot */}
       <section className="py-20 relative bg-dark-900 overflow-hidden border-t border-slate-800">
-        <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
           <div className="rounded-3xl bg-gradient-to-r from-dark-950 via-dark-900 to-dark-950 border border-slate-800 p-8 sm:p-12 shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -167,16 +167,16 @@ export const HomePage: React.FC = () => {
                   Multi-Agent Mesh & <span className="text-gradient-violet">Model Context Protocol</span>
                 </h2>
 
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
                   We build stateful multi-agent networks using LangGraph and Model Context Protocol (MCP). Agents dynamically decompose goals, execute tools safely in ephemeral sandboxes, and self-correct.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 max-w-2xl font-mono text-xs text-slate-300">
-                  <div className="flex items-center gap-2.5 p-3 rounded-xl bg-dark-950 border border-slate-800">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 max-w-3xl font-mono text-xs text-slate-300">
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-dark-950 border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-brand-cyan" />
                     <span>LangGraph Memory Checkpoints</span>
                   </div>
-                  <div className="flex items-center gap-2.5 p-3 rounded-xl bg-dark-950 border border-slate-800">
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-dark-950 border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-brand-cyan" />
                     <span>Model Context Protocol (MCP)</span>
                   </div>
@@ -185,7 +185,7 @@ export const HomePage: React.FC = () => {
                 <div className="pt-3">
                   <Link
                     to="/services/agentic-ai"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all shadow-glow-sm"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all shadow-glow-sm"
                   >
                     <span>Explore Agentic AI Capabilities</span>
                     <ArrowRight className="w-4 h-4" />
@@ -197,13 +197,13 @@ export const HomePage: React.FC = () => {
               <div className="lg:col-span-5 bg-dark-950 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 font-mono text-xs shadow-xl">
                 <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">PIPELINE CONNECTOR SNAPSHOT</div>
                 <div className="space-y-3">
-                  <div className="p-3.5 rounded-xl bg-brand-blue/15 border border-brand-blue/30 text-brand-cyan">
+                  <div className="p-4 rounded-xl bg-brand-blue/15 border border-brand-blue/30 text-brand-cyan font-semibold">
                     Planner Node → Task DAG Decomposition
                   </div>
-                  <div className="p-3.5 rounded-xl bg-brand-violet/15 border border-brand-violet/30 text-brand-violet">
+                  <div className="p-4 rounded-xl bg-brand-violet/15 border border-brand-violet/30 text-brand-violet font-semibold">
                     MCP Server Connector → ephem-sandbox:5432
                   </div>
-                  <div className="p-3.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                  <div className="p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-semibold">
                     AegisShield Guardrail → Verification PASS
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export const HomePage: React.FC = () => {
 
       {/* 3. Selected Projects Preview (Curated 3 Cards) */}
       <section className="py-20 relative bg-dark-950 overflow-hidden border-t border-slate-800">
-        <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-3xl space-y-3">
@@ -234,7 +234,7 @@ export const HomePage: React.FC = () => {
 
             <Link
               to="/projects"
-              className="px-6 py-3 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all flex items-center gap-2 w-fit shadow-glow-sm"
+              className="px-6 py-3 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all flex items-center gap-2 w-fit shadow-glow-sm flex-shrink-0"
             >
               <span>View All Projects</span>
               <ArrowRight className="w-4 h-4" />
@@ -267,7 +267,7 @@ export const HomePage: React.FC = () => {
                       {project.category}
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors line-clamp-2">
+                    <h3 className="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors line-clamp-2">
                       {project.title}
                     </h3>
 
@@ -295,11 +295,11 @@ export const HomePage: React.FC = () => {
 
       {/* 4. Technology Stack Snapshot */}
       <section className="py-16 relative bg-dark-900 overflow-hidden border-t border-slate-800">
-        <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
             <div>
               <span className="text-xs font-mono font-bold text-brand-cyan uppercase">ENTERPRISE STACK</span>
-              <h2 className="text-2xl font-bold text-white">Modern Engineering Ecosystem</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">Modern Engineering Ecosystem</h2>
             </div>
             <Link
               to="/technologies"
@@ -310,11 +310,11 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 2xl:grid-cols-8 gap-4 pt-6">
             {featuredTechItems.map((tech, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-dark-950 border border-slate-800 text-xs font-mono text-slate-200 flex items-center justify-between">
                 <span className="font-bold text-white">{tech.name}</span>
-                <span className="text-[10px] text-brand-cyan bg-brand-blue/10 px-2.5 py-0.5 rounded border border-brand-blue/20">
+                <span className="text-[10px] text-brand-cyan bg-brand-blue/10 px-2.5 py-0.5 rounded border border-brand-blue/20 font-semibold">
                   {tech.level}
                 </span>
               </div>
@@ -325,16 +325,16 @@ export const HomePage: React.FC = () => {
 
       {/* 5. Business Solutions & Philosophy */}
       <section className="py-20 relative bg-dark-950 overflow-hidden border-t border-slate-800">
-        <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-mono font-bold text-brand-violet uppercase">WHY MODEV TECHNOLOGY?</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                 Intelligent Software Engineering, <br />
                 <span className="text-gradient-violet">Not Generic Agencies</span>
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-4xl">
                 We are computer scientists and distributed systems architects. We build resilient, high-concurrency software systems with strict type safety, zero-trust security, and deterministic performance.
               </p>
               <div className="pt-2">
@@ -347,21 +347,21 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 p-7 rounded-2xl bg-dark-900 border border-slate-800 space-y-4 shadow-xl">
+            <div className="lg:col-span-5 p-8 rounded-2xl bg-dark-900 border border-slate-800 space-y-4 shadow-xl">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-cyan">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>PRODUCTION GUARANTEES</span>
               </div>
-              <ul className="space-y-2.5 text-xs text-slate-300">
-                <li className="p-3 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+                <li className="p-3.5 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
                   <span>Latency & Accuracy SLA Benchmarking</span>
                   <span className="font-mono text-brand-cyan font-bold">&lt; 250ms</span>
                 </li>
-                <li className="p-3 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
+                <li className="p-3.5 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
                   <span>Zero-Trust Prompt Shielding</span>
                   <span className="font-mono text-emerald-400 font-bold">OWASP LLM Guard</span>
                 </li>
-                <li className="p-3 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
+                <li className="p-3.5 rounded-xl bg-dark-950 border border-slate-800 flex items-center justify-between">
                   <span>High-Throughput Microservice Backends</span>
                   <span className="font-mono text-purple-400 font-bold">50,000 req/sec</span>
                 </li>
@@ -385,14 +385,14 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               to="/contact"
-              className="px-8 py-3.5 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all shadow-glow-md flex items-center gap-2"
+              className="px-8 py-4 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all shadow-glow-md flex items-center gap-2"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/services"
-              className="px-7 py-3.5 rounded-xl font-semibold text-xs text-slate-200 bg-dark-850 border border-slate-700 hover:border-slate-500 transition-all"
+              className="px-8 py-4 rounded-xl font-semibold text-xs text-slate-200 bg-dark-850 border border-slate-700 hover:border-slate-500 transition-all"
             >
               Explore Services
             </Link>

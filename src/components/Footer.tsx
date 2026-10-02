@@ -12,9 +12,9 @@ export const Footer: React.FC = () => {
     <footer className="bg-dark-950 border-t border-slate-800 text-slate-400 py-16 text-xs relative overflow-hidden">
       
       {/* Top subtle glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
 
-      <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 space-y-12">
         
         {/* Top Footer Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">

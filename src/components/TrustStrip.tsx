@@ -15,17 +15,17 @@ export const TrustStrip: React.FC = () => {
 
   return (
     <div className="relative z-20 border-y border-slate-800/80 bg-dark-900/90 backdrop-blur-xl py-4 overflow-hidden">
-      <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-6">
+      <div className="w-full max-w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="flex flex-wrap items-center justify-between gap-y-4 gap-x-8">
           {capabilities.map((item, index) => {
             const Icon = item.icon;
             return (
               <React.Fragment key={index}>
-                <div className="flex items-center gap-2.5 text-xs font-semibold tracking-wider text-slate-200 hover:text-brand-cyan transition-colors cursor-default group">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold tracking-wider text-slate-200 hover:text-brand-cyan transition-colors cursor-default group">
                   <span className="p-1.5 rounded-lg bg-brand-blue/10 border border-brand-blue/20 group-hover:border-brand-cyan/40 group-hover:bg-brand-cyan/15 transition-all">
                     <Icon className="w-4 h-4 text-brand-cyan" />
                   </span>
-                  <span className="uppercase text-[11px] font-mono tracking-wider">{item.label}</span>
+                  <span className="uppercase text-xs font-mono tracking-wider">{item.label}</span>
                 </div>
                 {index < capabilities.length - 1 && (
                   <div className="hidden lg:block w-1.5 h-1.5 rounded-full bg-brand-blue/40 shadow-glow-sm" />
