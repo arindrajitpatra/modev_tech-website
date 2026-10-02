@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           : 'bg-transparent py-5 border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between">
           
           {/* Company Brand Logo */}
@@ -113,14 +113,14 @@ export const Header: React.FC = () => {
           </button>
 
           {/* Desktop Hybrid Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 bg-dark-850/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-800/80 shadow-inner">
+          <nav className="hidden xl:flex items-center gap-1.5 bg-dark-850/70 backdrop-blur-md px-5 py-1.5 rounded-full border border-slate-800/80 shadow-inner">
             {navLinks.map((link) => {
               const isActive = location.pathname === '/' && activeSection === link.sectionId;
               return (
                 <button
                   key={link.sectionId}
                   onClick={() => handleNavClick(link.sectionId, link.path)}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                     isActive
                       ? 'text-white bg-brand-blue/20 border border-brand-blue/40 shadow-glow-sm font-semibold'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
@@ -136,7 +136,7 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={() => handleNavClick('contact', '/contact')}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all duration-300 shadow-glow-sm hover:shadow-glow-md flex items-center gap-2"
+              className="relative group overflow-hidden px-6 py-2.5 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all duration-300 shadow-glow-sm hover:shadow-glow-md flex items-center gap-2"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Start a Project

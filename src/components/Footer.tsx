@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../config/siteConfig';
-import { Cpu, Github, Linkedin, Twitter, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { Cpu, Github, Linkedin, Twitter, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -12,9 +12,9 @@ export const Footer: React.FC = () => {
     <footer className="bg-dark-950 border-t border-slate-800 text-slate-400 py-16 text-xs relative overflow-hidden">
       
       {/* Top subtle glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
         
         {/* Top Footer Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               </span>
             </Link>
 
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+            <p className="text-slate-400 text-xs leading-relaxed max-w-md">
               Designing and engineering high-throughput software systems powered by Generative AI, LLMs, Agentic Workflows, MCP, Cybersecurity, and Scalable Cloud Architectures.
             </p>
 
@@ -85,13 +85,13 @@ export const Footer: React.FC = () => {
               CONNECT
             </div>
             <div className="flex items-center gap-3">
-              <a href={SITE_CONFIG.socialLinks.github} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
+              <a href={SITE_CONFIG.socialLinks.github} target="_blank" rel="noreferrer" className="p-2.5 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
                 <Github className="w-4 h-4" />
               </a>
-              <a href={SITE_CONFIG.socialLinks.linkedin} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
+              <a href={SITE_CONFIG.socialLinks.linkedin} target="_blank" rel="noreferrer" className="p-2.5 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href={SITE_CONFIG.socialLinks.twitter} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
+              <a href={SITE_CONFIG.socialLinks.twitter} target="_blank" rel="noreferrer" className="p-2.5 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 hover:text-white transition-colors">
                 <Twitter className="w-4 h-4" />
               </a>
             </div>
@@ -109,10 +109,10 @@ export const Footer: React.FC = () => {
             <span className="text-slate-400">SOC2 & HIPAA Ready Architecture</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1 text-slate-300 hover:text-brand-cyan transition-colors"
+              className="flex items-center gap-1 text-slate-300 hover:text-brand-cyan transition-colors font-semibold"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3 h-3" />
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
