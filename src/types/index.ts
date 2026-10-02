@@ -1,5 +1,6 @@
 export interface ServiceItem {
   id: string;
+  slug: string;
   number: string;
   title: string;
   category: string;
@@ -8,14 +9,28 @@ export interface ServiceItem {
   iconName: string;
   tags: string[];
   capabilities: string[];
+  whatWeBuild: string[];
+  architectureOverview: string;
+  engineeringApproach: string;
+  relatedProjectIds: string[];
   highlight?: boolean;
+}
+
+export interface SolutionItem {
+  id: string;
+  title: string;
+  businessProblem: string;
+  solutionOutcome: string;
+  impactMetrics: string[];
+  keyFeatures: string[];
+  iconName: string;
+  relatedServiceSlug: string;
 }
 
 export interface TechItem {
   name: string;
   category: string;
   description: string;
-  iconSvg?: string;
   iconName?: string;
   level: string;
   featured?: boolean;
@@ -32,6 +47,7 @@ export interface TechCategory {
 
 export interface ProjectItem {
   id: string;
+  slug: string;
   title: string;
   subtitle: string;
   category: string;
@@ -49,12 +65,21 @@ export interface ProjectItem {
     toolIntegration: string;
     securityConsiderations: string;
   };
+  securityDetails?: {
+    threatModel: string;
+    securityArchitecture: string;
+    toolchain: string;
+    detectionWorkflow: string;
+    controls: string;
+  };
   metrics?: { label: string; value: string }[];
   demoVideoUrl?: string;
   githubUrl?: string;
   liveDemoUrl?: string;
   imageUrl: string;
   badge?: string;
+  relatedServiceSlug: string;
+  relatedProjectIds?: string[];
 }
 
 export interface ProcessStep {

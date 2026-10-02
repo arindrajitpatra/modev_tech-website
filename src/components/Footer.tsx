@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../config/siteConfig';
 import { Cpu, Github, Linkedin, Twitter, ArrowUp, ArrowUpRight } from 'lucide-react';
 
@@ -20,7 +21,7 @@ export const Footer: React.FC = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-blue via-brand-cyan to-brand-violet p-[1px] shadow-glow-sm">
                 <div className="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center">
                   <Cpu className="w-4 h-4 text-brand-cyan" />
@@ -29,7 +30,7 @@ export const Footer: React.FC = () => {
               <span className="font-extrabold text-xl text-white font-sans tracking-tight">
                 {SITE_CONFIG.companyName}
               </span>
-            </div>
+            </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               Designing and engineering high-throughput software systems powered by Generative AI, LLMs, Agentic Workflows, MCP, Cybersecurity, and Scalable Cloud Architectures.
@@ -46,40 +47,37 @@ export const Footer: React.FC = () => {
               SERVICES
             </div>
             <ul className="space-y-2 text-slate-400 font-sans">
-              <li><a href="#services" className="hover:text-white transition-colors">AI & GenAI Systems</a></li>
-              <li><a href="#agentic-ai" className="hover:text-white transition-colors">Agentic Workflows</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Advanced RAG</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">MCP Protocol Tools</a></li>
-              <li><a href="#security" className="hover:text-white transition-colors">Cybersecurity Audit</a></li>
+              <li><Link to="/services/ai-generative-ai" className="hover:text-white transition-colors">AI & GenAI</Link></li>
+              <li><Link to="/services/agentic-ai" className="hover:text-white transition-colors">Agentic AI</Link></li>
+              <li><Link to="/services/llm-rag" className="hover:text-white transition-colors">LLM & RAG</Link></li>
+              <li><Link to="/services/mcp" className="hover:text-white transition-colors">MCP Protocol</Link></li>
+              <li><Link to="/services/cybersecurity" className="hover:text-white transition-colors">Cybersecurity</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors font-semibold text-brand-cyan">View All Services →</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-2 space-y-3">
             <div className="font-mono text-[11px] font-bold uppercase text-slate-200 tracking-wider">
-              ARCHITECTURE
+              SOLUTIONS & PORTFOLIO
             </div>
             <ul className="space-y-2 text-slate-400 font-sans">
-              <li><a href="#ai-focus" className="hover:text-white transition-colors">AI Pipeline Topology</a></li>
-              <li><a href="#agentic-ai" className="hover:text-white transition-colors">LangGraph Orchestration</a></li>
-              <li><a href="#tech" className="hover:text-white transition-colors">Java & Spring Boot</a></li>
-              <li><a href="#tech" className="hover:text-white transition-colors">Python FastAPI</a></li>
-              <li><a href="#security" className="hover:text-white transition-colors">AegisShield Proxy</a></li>
+              <li><Link to="/solutions" className="hover:text-white transition-colors">AI Automation</Link></li>
+              <li><Link to="/solutions" className="hover:text-white transition-colors">Knowledge Systems</Link></li>
+              <li><Link to="/projects" className="hover:text-white transition-colors">All Projects</Link></li>
+              <li><Link to="/technologies" className="hover:text-white transition-colors">Tech Ecosystem</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-2 space-y-3">
-            <div className="md:col-span-2 space-y-3">
-              <div className="font-mono text-[11px] font-bold uppercase text-slate-200 tracking-wider">
-                COMPANY
-              </div>
-              <ul className="space-y-2 text-slate-400 font-sans">
-                <li><a href="#projects" className="hover:text-white transition-colors">Selected Work</a></li>
-                <li><a href="#process" className="hover:text-white transition-colors">Engineering Process</a></li>
-                <li><a href="#why-us" className="hover:text-white transition-colors">Why MoDEV</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">About & Leadership</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Start a Project</a></li>
-              </ul>
+            <div className="font-mono text-[11px] font-bold uppercase text-slate-200 tracking-wider">
+              COMPANY
             </div>
+            <ul className="space-y-2 text-slate-400 font-sans">
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">Leadership Team</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors font-semibold text-brand-cyan">Start a Project →</Link></li>
+            </ul>
           </div>
 
           <div className="md:col-span-2 space-y-3">

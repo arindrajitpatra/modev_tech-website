@@ -1,81 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { TrustStrip } from './components/TrustStrip';
-import { Services } from './components/Services';
-import { AIFocusSection } from './components/AIFocusSection';
-import { AgenticAISection } from './components/AgenticAISection';
-import { TechEcosystem } from './components/TechEcosystem';
-import { Projects } from './components/Projects';
-import { ProcessSection } from './components/ProcessSection';
-import { SecuritySection } from './components/SecuritySection';
-import { WhyUsSection } from './components/WhyUsSection';
-import { AboutSection } from './components/AboutSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
+
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { SolutionsPage } from './pages/SolutionsPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
+import { TechnologiesPage } from './pages/TechnologiesPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export function App() {
-  const [initialContactService, setInitialContactService] = useState<string>('');
-
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToProjects = () => {
-    const el = document.getElementById('projects');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSelectServiceForContact = (serviceName: string) => {
-    setInitialContactService(serviceName);
-    scrollToContact();
-  };
-
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-brand-cyan selection:text-dark-950 flex flex-col font-sans">
-      
-      {/* Sticky Header */}
-      <Header onOpenContact={scrollToContact} />
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-brand-cyan selection:text-dark-950 flex flex-col font-sans">
+        
+        {/* Global Sticky Header */}
+        <Header />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        <Hero 
-          onOpenContact={scrollToContact}
-          onExploreWork={scrollToProjects}
-        />
+        {/* Dynamic Route Pages */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+            <Route path="/technologies" element={<TechnologiesPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </main>
 
-        <TrustStrip />
+        {/* Global Footer */}
+        <Footer />
 
-        <Services onSelectServiceForContact={handleSelectServiceForContact} />
-
-        <AIFocusSection />
-
-        <AgenticAISection />
-
-        <TechEcosystem />
-
-        <Projects onOpenContact={scrollToContact} />
-
-        <ProcessSection />
-
-        <SecuritySection />
-
-        <WhyUsSection />
-
-        <AboutSection />
-
-        <ContactSection initialService={initialContactService} />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-    </div>
+      </div>
+    </Router>
   );
 }
 
