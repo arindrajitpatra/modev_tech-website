@@ -2,12 +2,15 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { TrustStrip } from '../components/TrustStrip';
-import { SERVICES_DATA, PROJECTS_DATA } from '../data/contentData';
+import { SERVICES_DATA, PROJECTS_DATA, SOLUTIONS_DATA } from '../data/contentData';
 import { AIFocusSection } from '../components/AIFocusSection';
 import { AgenticAISection } from '../components/AgenticAISection';
+import { TechEcosystem } from '../components/TechEcosystem';
 import { ProcessSection } from '../components/ProcessSection';
 import { SecuritySection } from '../components/SecuritySection';
 import { WhyUsSection } from '../components/WhyUsSection';
+import { AboutSection } from '../components/AboutSection';
+import { ContactSection } from '../components/ContactSection';
 import { 
   ArrowRight, 
   Sparkles, 
@@ -20,7 +23,9 @@ import {
   Server, 
   Code,
   CheckCircle2,
-  Play
+  Play,
+  TrendingUp,
+  Target
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -39,26 +44,50 @@ export const HomePage: React.FC = () => {
     }
   };
 
-  // Preview major 6 services on homepage
-  const homepageServices = SERVICES_DATA.slice(0, 6);
+  const getSolutionIcon = (name: string) => {
+    switch (name) {
+      case 'Zap': return Zap;
+      case 'Database': return Database;
+      case 'Bot': return Bot;
+      case 'ShieldCheck': return ShieldCheck;
+      case 'Server': return Server;
+      default: return Code;
+    }
+  };
 
-  // Preview 3 selected projects on homepage
+  const homepageServices = SERVICES_DATA.slice(0, 6);
   const homepageProjects = PROJECTS_DATA.slice(0, 3);
+
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToProjects = () => {
+    const el = document.getElementById('projects');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="space-y-0">
       
-      {/* Hero Section */}
+      {/* #home - Hero Section */}
       <Hero 
-        onOpenContact={() => navigate('/contact')}
-        onExploreWork={() => navigate('/projects')}
+        onOpenContact={scrollToContact}
+        onExploreWork={scrollToProjects}
       />
 
-      {/* Trust Capability Strip */}
-      <TrustStrip />
+      {/* #trust - Trust Capability Strip */}
+      <div id="trust">
+        <TrustStrip />
+      </div>
 
-      {/* Services Overview Section (Homepage Preview) */}
-      <section className="py-24 relative bg-dark-950 overflow-hidden">
+      {/* #services - Services Overview Section */}
+      <section id="services" className="py-24 relative bg-dark-950 overflow-hidden border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
@@ -84,7 +113,6 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          {/* 6 Services Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {homepageServices.map((service) => {
               const IconComponent = getServiceIcon(service.iconName);
@@ -120,7 +148,7 @@ export const HomePage: React.FC = () => {
                     to={`/services/${service.slug}`}
                     className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-brand-cyan group-hover:text-white transition-colors"
                   >
-                    <span>Learn More & Specs</span>
+                    <span>Inspect Modular Service Specs</span>
                     <ArrowRight className="w-4 h-4 text-brand-cyan transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -131,14 +159,65 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* AI Architecture Overview */}
+      {/* #ai-focus - AI Architecture Overview */}
       <AIFocusSection />
 
-      {/* Agentic AI Section */}
+      {/* #agentic-ai - Agentic AI Workflow Simulator */}
       <AgenticAISection />
 
-      {/* Selected Projects (Homepage Preview 3 Cards) */}
-      <section className="py-24 relative bg-dark-950 overflow-hidden border-t border-slate-800">
+      {/* #solutions - Solutions Preview */}
+      <section id="solutions" className="py-24 relative bg-dark-950 overflow-hidden border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div className="max-w-2xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-violet/20 border border-brand-violet/30 text-brand-violet text-xs font-mono font-bold uppercase">
+                <Target className="w-3.5 h-3.5" />
+                BUSINESS OUTCOMES & SOLUTIONS
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                Solving Complex <span className="text-gradient-violet">Business Problems</span>
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base">
+                How our technical architectures translate into enterprise ROI, process speed, and security risk reduction.
+              </p>
+            </div>
+
+            <Link
+              to="/solutions"
+              className="px-6 py-3 rounded-xl font-semibold text-xs text-white bg-brand-violet/20 hover:bg-brand-violet/30 border border-brand-violet/40 text-brand-violet transition-all flex items-center gap-2 w-fit shadow-glow-sm"
+            >
+              <span>View All Business Solutions</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {SOLUTIONS_DATA.slice(0, 3).map((sol) => {
+              const IconComp = getSolutionIcon(sol.iconName);
+              return (
+                <div key={sol.id} className="rounded-2xl bg-dark-900 border border-slate-800 p-6 space-y-4 hover:border-brand-violet/40 transition-all">
+                  <div className="p-3 rounded-xl bg-brand-violet/20 border border-brand-violet/40 text-brand-violet w-fit">
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{sol.title}</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">{sol.solutionOutcome}</p>
+                  <div className="pt-2">
+                    <div className="text-[10px] font-mono text-brand-cyan font-semibold flex items-center gap-1">
+                      <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                      {sol.impactMetrics[0]}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* #projects - Selected Projects (Homepage Preview 3 Cards) */}
+      <section id="projects" className="py-24 relative bg-dark-950 overflow-hidden border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
@@ -204,7 +283,7 @@ export const HomePage: React.FC = () => {
                     to={`/projects/${project.slug}`}
                     className="text-xs font-semibold text-brand-cyan hover:text-white flex items-center gap-1.5 transition-colors"
                   >
-                    <span>View Case Study</span>
+                    <span>View Dedicated Case Study</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -215,41 +294,35 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <ProcessSection />
+      {/* #tech - Technology Ecosystem Overview */}
+      <div id="tech">
+        <TechEcosystem />
+      </div>
 
-      {/* Security Section */}
-      <SecuritySection />
+      {/* #process - Engineering Process Section */}
+      <div id="process">
+        <ProcessSection />
+      </div>
 
-      {/* Why Us Section */}
-      <WhyUsSection />
+      {/* #security - Security Section */}
+      <div id="security">
+        <SecuritySection />
+      </div>
 
-      {/* Final Homepage CTA Banner */}
-      <section className="py-20 relative bg-dark-900 overflow-hidden border-t border-slate-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Ready to Build Next-Generation Intelligent Software?
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
-            Discuss your system architecture, AI model requirements, or cloud backend migration directly with our technical principals.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              to="/contact"
-              className="px-8 py-4 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-violet hover:from-brand-blue hover:to-brand-cyan transition-all shadow-glow-md flex items-center gap-2"
-            >
-              <span>Start a Project</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/services"
-              className="px-8 py-4 rounded-xl font-semibold text-sm text-slate-200 bg-dark-850 border border-slate-700 hover:border-slate-500 transition-all"
-            >
-              Explore Services
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* #why-us - Why Us Section */}
+      <div id="why-us">
+        <WhyUsSection />
+      </div>
+
+      {/* #about - About & Leadership Section */}
+      <div id="about">
+        <AboutSection />
+      </div>
+
+      {/* #contact - Contact & Inquiry Section */}
+      <div id="contact">
+        <ContactSection />
+      </div>
 
     </div>
   );
